@@ -17,14 +17,13 @@ const router = new Router({
     {
       path: '/about',
       name: 'about',
-      // Esto es otra manera de hacer el lazy-loaded en  vez de hacer el import.
+      
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
       path: '/home',
       name: 'home',
       component: Home,
-      //Atributo Customizable..para marcar la rutacon un disntitibo para usar:
       meta:{
         requiereLogin:true
 
@@ -42,9 +41,9 @@ const router = new Router({
     }
   ]
 })
-//to donde va... From de donde viene y next siguiente. 
+
 router.beforeEach((to, from, next) =>{
-  //to and from are both route objects. must call "true"
+
   let user = Firebase.auth().currentUser;
   let authRequired = to.matched.some(route => route.meta.requiereLogin)
   if (!user && authRequired){

@@ -15,7 +15,7 @@ router.get("/product/:id", async (req, res) => {
     .get().then((doc) =>{
       if (doc.exists){
         console.log("Document data:", doc.data());
-        return doc.data ()
+        return doc.data()
       } else {
         console.log ("No such document!");
         return{}

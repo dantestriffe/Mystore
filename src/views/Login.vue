@@ -67,8 +67,7 @@ export default {
     }
   },
   methods: {
-    login(e) {
-      //función que ayuda a no mandar el formulario a otra paguina. 
+    login(e) { 
       e.preventDefault()
       this.formHasErrors = this.credentials.email === '' || this.credentials.password === ''
       if(!this.formHasErrors) {

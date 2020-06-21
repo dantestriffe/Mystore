@@ -121,23 +121,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a, i {
-  color: white;
-}
-nav{
-  height: 3.25rem;
-  background-color: rgb(55, 56, 56);
-  position: fixed;
-  top: 0;
-  width: 100%;
- }
- #navbarMenu{
-   background-color: rgb(55, 56, 56);
-
- }
-
-.navbar-dropdown{
-background-color: rgb(55, 56, 56);
-}
 
 </style>

@@ -31,20 +31,18 @@ export default new Vuex.Store({
     // Cart
     shoppingCart: getFromStorage('cart') || newCart(),
     showCart: false,
-    ///NUUUEEEEVVVVOOOOOOO
     products: [],
     loading: false,
     edit: false
   },
   mutations: {
-//NUEVOOOOOOOOOOOOO
-LOADING_PRODUCTS(state){
-  state.loading = !state.loading
-},
-GET_PRODUCTS(state, products){
-  state.products = products
-  state.loading = false
-},
+  LOADING_PRODUCTS(state){
+    state.loading = !state.loading
+  },
+  GET_PRODUCTS(state, products){
+    state.products = products
+    state.loading = false
+  },
     // User
     UPDATE_CURR_USER(state, user) {
       state.currentUser = user
@@ -131,24 +129,24 @@ GET_PRODUCTS(state, products){
       console.log('setting showCart to ', val)
       return new Promise((resolve, reject) => {
         try {
-          commit('UPDATE_SHOW_CART', !!val) // !! double-negation for Boolen casting
+          commit('UPDATE_SHOW_CART', !!val) 
           resolve(true)
         } catch(e) { reject(e) }
       })
     },
-    //NUEEEEVVOOOOOO nuevooo
+   
     getProducts({commit}){
-    //se Carga la mutación
+
       commit('LOADING_PRODUCTS')
-      //variable para cargar o no cargar información
-      axios.get (`https://us-central1-tddg3-72011.cloudfunctions.net/products/products`, {
+
+      axios.get (`https://us-central1-tddg3-72011.cloudfunctions.net/products/Products`, {
         headers:{
           "Content-type": "text/plain"
         }
       }).then((accept) =>{
-      //variable auxiliar
+
       let data = accept.data;
-      //llamar otra mutación
+
       commit('GET_PRODUCTS', data)
       })
     }

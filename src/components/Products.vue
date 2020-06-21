@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <section class="hero  is-bold">
+    <section class=" is-bold">
       <div class="hero-body">
         <div class="container">
           <div style="display: inline-block;">
             <h1 class="title">
-              Nuestros Productos
+             Productos
             </h1>
             <h2 class="subtitle">
-              Todo lo mejor está aquí
+           Encuentra tus mejores productos aquí!
             </h2>
           </div>
           <div class="is-pulled-right" style="display: inline-block;">
@@ -118,19 +118,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.card{
-  margin-top: 2em;
-}
-
-.hero{
-  margin-top: 50px;
-  padding-bottom: 30px;
-background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-
-}
-
-
 
 .counter {
   display: inline-block;

@@ -9,7 +9,7 @@ export default {
     props:{
         msg:{
             type: String,
-            default: 'epale, soy default '
+            default: 'defult'
         } 
     }
 }

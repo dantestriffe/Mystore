@@ -1,5 +1,5 @@
 <template>
-    <div class="conta">
+    <div>
         <div class="container content box">
        <h1 class="title">Agregar Productos</h1>
          <div class="field">    
@@ -37,7 +37,7 @@
                  <td>{{ p.id }}</td>
                  <td>{{ p.data.name }}</td>
                  <td>{{ p.data.price }}</td>
-                 <td> {{ p.data.picture.substring(0,50) }}</td>
+                 <td> {{ p.data.picture}}</td>
                  <td>
               <button class="button btn-success" @click="editProduct(p.id)">Editar</button>
               </td>
@@ -69,12 +69,12 @@ export default {
     methods:{
          ...mapActions(['updateEdit']),
         createProducts(){
-            let send = {
+            let go = {
                 name: this.name,
                 picture: this.picture,
                 price: this.price
             }
-            axios.post(' https://us-central1-tddg3-72011.cloudfunctions.net/products/product',send,
+            axios.post('https://us-central1-tddg3-72011.cloudfunctions.net/products/Product', go,
             {headers:{'content-type':'application/json'}})
             .then((response) =>{
                 console.log(response);
@@ -84,13 +84,13 @@ export default {
                 console.log(error);
             });
          },
-        deleteProduct(id){
-            let confirmation = confirm("Estaiii seguroo??")       
+        deleteProduct(id){    
+            let confirmation = confirm(`Vas a eliminar el producto con el id = ${id}`)       
             if(confirmation){
-                axios.delete(`https://us-central1-tdddg3.cloudfunctions.net/products/product/${id}`,
+                axios.delete(`https://us-central1-tddg3-72011.cloudfunctions.net/products/Product/${id}`,
                  {headers:{'content-type':'application/json'}}) 
                  .then(() =>{
-                     alert('Producto Eliminado Exitosamente')
+                     alert('Producto Eliminado')
                    this.$store.dispatch('getProducts')  
                  })
             }
@@ -101,7 +101,7 @@ export default {
         },
         //solo es para apretar el botón
         findProduct(id){
-             axios.get(`https://us-central1-tdddg3.cloudfunctions.net/products/product/${id}`,
+             axios.get(`https://us-central1-tddg3-72011.cloudfunctions.net/products/Product/${id}`,
                  {headers:{'content-type':'application/json'}}) 
             .then((response) =>{
                 this.name = response.data.name
@@ -111,13 +111,13 @@ export default {
             })
         },
         updateProduct(id){
-            let send = {
+            let go = {
                 name: this.name,
                 picture: this.picture,
                 price: this.price
             }
-            console.log (send)
-            axios.put(`https://us-central1-tdddg3.cloudfunctions.net/products/product/${id}`,send,
+            console.log (go)
+            axios.put(`https://us-central1-tddg3-72011.cloudfunctions.net/products/Product/${id}`,go,
             {headers:{'content-type':'application/json'}})
             .then(() =>{
                 this.name = ''
